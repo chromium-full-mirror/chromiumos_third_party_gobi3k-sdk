@@ -16,7 +16,7 @@ include ../Shared/shared.mk
 
 $(OUTPUT): $(SOURCES) $(LIBCORE) QMIDB.o
 	@echo "  CXX $@"
-	@$(CXX) $(CXXFLAGS) $(QMICOREFLAGS) $(INCLUDES) -shared -o $@ $^
+	@$(CXX) $(CXXFLAGS) $(QMICOREFLAGS) $(INCLUDES) -shared -o $@ $^ -lpthread
 
 # Must set ANDROID_PATH variable
 Android:
