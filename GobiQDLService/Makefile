@@ -10,7 +10,7 @@ $(OUTPUT): $(SOURCES) $(LIBCORE)
 	$(CXX) $(CXXFLAGS) $(INCLUDES) -o $@ $^ -lpthread
 
 # Must set ANROID_PATH variable
-Android: 
+Android:
 	$(MAKE) $(MFLAGS) \
       PATH=$(PATH):$(ANDROID_PATH) \
       CXX=arm-linux-androideabi-g++ \
@@ -19,8 +19,8 @@ Android:
       INCLUDES="-I ../Core -I ../Shared -L. -lCore" \
       all
 
-debug: 
-	$(MAKE) $(MFLAGS) CXXFLAGS="$(CXXFLAGS) $(DEBUGFLAGS)" all
+debug:
+	$(CXX) $(CXXFLAGS) $(INCLUDES) -o $@ $^ -pthread
 
 install: $(OUTPUT)
 	mkdir -p $(ROOT)/Gobi/GobiQDLService
