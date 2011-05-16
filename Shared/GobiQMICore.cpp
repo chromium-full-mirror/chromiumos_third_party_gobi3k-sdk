@@ -166,7 +166,8 @@ cGobiQMICore::cGobiQMICore()
       mDeviceKey( "" ),
       mLastError( eGOBI_ERR_NONE ),
       mRequests( 16 ),
-      mLastNetStartID( (WORD)INVALID_QMI_TRANSACTION_ID )
+      mLastNetStartID( (WORD)INVALID_QMI_TRANSACTION_ID ),
+      mVid(0xBAADBEEF), mPid(0xCAFEBABE)
 {
    // Nothing to do
 }
@@ -264,6 +265,11 @@ bool cGobiQMICore::Cleanup()
    mServers.clear();
 
    return true;
+}
+
+GobiType cGobiQMICore::GetDeviceType()
+{
+   return ::GetDeviceType(mVid, mPid);
 }
 
 /*===========================================================================
@@ -596,6 +602,9 @@ bool cGobiQMICore::Disconnect()
 
       pIter++;
    }
+
+   mVid = 0xDEADD00D;
+   mPid = 0xDEADD00D;
 
    return bRC;
 }
