@@ -61,7 +61,7 @@ DESCRIPTION:
 RETURN VALUE:
    bool
 ===========================================================================*/
-bool Run(void)
+bool Run()
 {
    cGobiQDLCore qdl;
    bool bRC = qdl.Initialize();
@@ -192,9 +192,8 @@ DESCRIPTION:
 RETURN VALUE:
    int - Process exit code
 ===========================================================================*/
-int main(void)
+int main()
 {
-
    // Add PID to log statements
    openlog( "GobiQDLService", LOG_PID, LOG_USER );
 

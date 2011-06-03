@@ -133,6 +133,7 @@ void * ScheduleThread( PVOID pArg )
          break;
       }
 
+      // Get Schedule Mutex (non-blocking)
       nRet = pthread_mutex_lock( &pServer->mScheduleMutex );
       if (nRet != 0)
       {

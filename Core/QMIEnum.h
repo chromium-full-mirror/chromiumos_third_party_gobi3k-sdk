@@ -608,7 +608,7 @@ enum eQMIMessageAUTH
 /*=========================================================================*/
 enum eQMIMessageVoice
 {
-   eQMI_VOICE_ENUM_BEGIN = -1, 
+   eQMI_VOICE_ENUM_BEGIN = -1,
 
    eQMI_VOICE_INDICATION_REG = 3,    // 03 Set indication registration state
 
@@ -670,9 +670,12 @@ inline bool IsValid( eQMIMessageVoice msgID )
 {
    bool retVal = false;
    if ( (msgID == eQMI_VOICE_INDICATION_REG)
-   ||   (msgID >= eQMI_VOICE_CALL_ORIGINATE && msgID <= eQMI_VOICE_CALL_ANSWER)
-   ||   (msgID >= eQMI_VOICE_GET_CALL_INFO && msgID <= eQMI_VOICE_GET_ALL_STATUS)
-   ||   (msgID >= eQMI_VOICE_MANAGE_CALLS && msgID < eQMI_VOICE_ENUM_END) )
+   ||   (msgID >= eQMI_VOICE_CALL_ORIGINATE
+         && msgID <= eQMI_VOICE_CALL_ANSWER)
+   ||   (msgID >= eQMI_VOICE_GET_CALL_INFO
+         && msgID <= eQMI_VOICE_GET_ALL_STATUS)
+   ||   (msgID >= eQMI_VOICE_MANAGE_CALLS
+         && msgID < eQMI_VOICE_ENUM_END) )
    {
       retVal = true;
    }

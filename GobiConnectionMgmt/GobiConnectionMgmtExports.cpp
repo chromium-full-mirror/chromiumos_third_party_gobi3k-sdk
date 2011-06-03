@@ -4958,14 +4958,14 @@ METHOD:
 
 DESCRIPTION:
    Enable/disable USSD release callback function
-  
+
 PARAMETERS:
    pCallback   [ I ] - Callback function
 
 RETURN VALUE:
    ULONG - Return code
 ===========================================================================*/
-ULONG SetUSSDReleaseCallback( 
+ULONG SetUSSDReleaseCallback(
    tFNUSSDRelease             pCallback )
 {
    cGobiConnectionMgmt * pAPI = gConnectionDLL.GetAPI();
@@ -4983,14 +4983,14 @@ METHOD:
 
 DESCRIPTION:
    Enable/disable USSD notification callback function
-  
+
 PARAMETERS:
    pCallback   [ I ] - Callback function
 
 RETURN VALUE:
    ULONG - Return code
 ===========================================================================*/
-ULONG SetUSSDNotificationCallback( 
+ULONG SetUSSDNotificationCallback(
    tFNUSSDNotification        pCallback )
 {
    cGobiConnectionMgmt * pAPI = gConnectionDLL.GetAPI();
@@ -5008,14 +5008,14 @@ METHOD:
 
 DESCRIPTION:
    Enable/disable USSD origination callback function
-  
+
 PARAMETERS:
    pCallback   [ I ] - Callback function
 
 RETURN VALUE:
    ULONG - Return code
 ===========================================================================*/
-ULONG SetUSSDOriginationCallback( 
+ULONG SetUSSDOriginationCallback(
    tFNUSSDOrigination         pCallback )
 {
    cGobiConnectionMgmt * pAPI = gConnectionDLL.GetAPI();

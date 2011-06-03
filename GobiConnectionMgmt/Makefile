@@ -10,7 +10,6 @@ QMICOREFLAGS := -D WDS_SUPPORT \
              -D WMS_SUPPORT \
              -D IMG2K_SUPPORT \
              -D VOICE_SUPPORT
-all: clean $(OUTPUT)
 
 SOURCES := GobiConnectionMgmtExports.cpp \
         GobiConnectionMgmt.cpp \

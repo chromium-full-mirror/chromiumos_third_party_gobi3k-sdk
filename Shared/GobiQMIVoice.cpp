@@ -1,5 +1,5 @@
 /*===========================================================================
-FILE: 
+FILE:
    GobiQMICoreVoice.cpp
 
 DESCRIPTION:
@@ -156,7 +156,7 @@ eGobiError cGobiQMICore::AnswerUSSD( BYTE * pInfo )
       return eGOBI_ERR_MEMORY;
    }
 
-   // Send the QMI request, check result, and return 
+   // Send the QMI request, check result, and return
    return SendAndCheckReturn( eQMI_SVC_VOICE, pRequest, 300000 );
 }
 
@@ -202,4 +202,3 @@ eGobiError cGobiQMICore::CancelUSSD()
 
    return eGOBI_ERR_NONE;
 }
-

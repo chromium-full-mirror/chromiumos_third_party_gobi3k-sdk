@@ -141,12 +141,12 @@ typedef void (* tFNOMADMState)(
 typedef void (* tFNUSSDRelease)();
 
 // USSD notification callback function
-typedef void (* tFNUSSDNotification)( 
+typedef void (* tFNUSSDNotification)(
    ULONG                      type,
    BYTE *                     pNetworkInfo );
 
 // USSD origination callback function
-typedef void (* tFNUSSDOrigination)( 
+typedef void (* tFNUSSDOrigination)(
    ULONG                      errorCode,
    ULONG                      failureCause,
    BYTE *                     pNetworkInfo,
@@ -1037,7 +1037,7 @@ class cUSSDReleaseCallback : public cGobiCMCallback
             mpCallback();
          }
       };
-   
+
       /* Callback function */
       tFNUSSDRelease mpCallback;
 };
@@ -1091,7 +1091,7 @@ class cUSSDNotificationCallback : public cGobiCMCallback
             }
          }
       };
-   
+
       /* Callback function */
       tFNUSSDNotification mpCallback;
 
@@ -1129,8 +1129,8 @@ class cUSSDOriginationCallback : public cGobiCMCallback
          if (pNetworkInfo != 0)
          {
             ULONG len = (ULONG)pNetworkInfo[1] + (ULONG)2;
-            memcpy( &mNetworkInfo[0], 
-                    pNetworkInfo, 
+            memcpy( &mNetworkInfo[0],
+                    pNetworkInfo,
                     len );
 
             mbNetwork = true;
@@ -1139,8 +1139,8 @@ class cUSSDOriginationCallback : public cGobiCMCallback
          if (pAlpha != 0)
          {
             ULONG len = (ULONG)pAlpha[1] + (ULONG)2;
-            memcpy( &mAlpha[0], 
-                    pAlpha, 
+            memcpy( &mAlpha[0],
+                    pAlpha,
                     len );
 
             mbAlpha = true;
@@ -1165,7 +1165,7 @@ class cUSSDOriginationCallback : public cGobiCMCallback
             mpCallback( mErrorCode, mFailureCause, pNetworkInfo, pAlpha );
          }
       };
-   
+
       /* Callback function */
       tFNUSSDOrigination mpCallback;
 

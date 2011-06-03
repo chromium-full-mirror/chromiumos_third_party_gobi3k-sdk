@@ -600,7 +600,7 @@ void cGobiConnectionMgmt::ProcessTraffic( eQMIService svc )
                for (ULONG i = mVoiceItemsProcessed; i < count; i++)
                {
                   sProtocolBuffer buf = logVoice.GetBuffer( i );
-                  if ( (buf.IsValid() == true) 
+                  if ( (buf.IsValid() == true)
                   &&   (buf.GetType() == (ULONG)ePROTOCOL_QMI_VOICE_RX) )
                   {
                      ProcessVoiceBuffer( buf );
@@ -1360,7 +1360,7 @@ RETURN VALUE:
 ===========================================================================*/
 void cGobiConnectionMgmt::ProcessVoiceBuffer( const sProtocolBuffer & buf )
 {
-   sQMIServiceBuffer qmiBuf( buf.GetSharedBuffer() );   
+   sQMIServiceBuffer qmiBuf( buf.GetSharedBuffer() );
    if (qmiBuf.IsValid() == false)
    {
       return;
@@ -1418,7 +1418,7 @@ void cGobiConnectionMgmt::ProcessVoiceBuffer( const sProtocolBuffer & buf )
          }
 
          cUSSDNotificationCallback * pCB = 0;
-         pCB = new cUSSDNotificationCallback( mpFNUSSDNotification, 
+         pCB = new cUSSDNotificationCallback( mpFNUSSDNotification,
                                               pf[0].mValue.mU32,
                                               pUSSData );
 
@@ -1431,7 +1431,7 @@ void cGobiConnectionMgmt::ProcessVoiceBuffer( const sProtocolBuffer & buf )
          }
       }
    }
-   else if ( (msgID == (ULONG)eQMI_VOICE_ASYNC_USSD_IND) 
+   else if ( (msgID == (ULONG)eQMI_VOICE_ASYNC_USSD_IND)
         &&   (mpFNUSSDOrigination != 0) )
    {
       // Prepare TLVs for extraction
@@ -1494,7 +1494,7 @@ void cGobiConnectionMgmt::ProcessVoiceBuffer( const sProtocolBuffer & buf )
 
 
       cUSSDOriginationCallback * pCB = 0;
-      pCB = new cUSSDOriginationCallback( mpFNUSSDOrigination, 
+      pCB = new cUSSDOriginationCallback( mpFNUSSDOrigination,
                                           ec,
                                           fc,
                                           pNetworkInfo,
@@ -2823,14 +2823,14 @@ METHOD:
 
 DESCRIPTION:
    Enable/disable USSD release callback function
-  
+
 PARAMETERS:
    pCallback   [ I ] - Callback function
 
 RETURN VALUE:
    eGobiError - Return code
 ===========================================================================*/
-eGobiError cGobiConnectionMgmt::SetUSSDReleaseCallback( 
+eGobiError cGobiConnectionMgmt::SetUSSDReleaseCallback(
    tFNUSSDRelease             pCallback )
 {
    // We don't have to register for anything so a simple assignment works
@@ -2844,14 +2844,14 @@ METHOD:
 
 DESCRIPTION:
    Enable/disable USSD notification callback function
-  
+
 PARAMETERS:
    pCallback   [ I ] - Callback function
 
 RETURN VALUE:
    eGobiError - Return code
 ===========================================================================*/
-eGobiError cGobiConnectionMgmt::SetUSSDNotificationCallback( 
+eGobiError cGobiConnectionMgmt::SetUSSDNotificationCallback(
    tFNUSSDNotification        pCallback )
 {
    // We don't have to register for anything so a simple assignment works
@@ -2865,14 +2865,14 @@ METHOD:
 
 DESCRIPTION:
    Enable/disable USSD origination callback function
-  
+
 PARAMETERS:
    pCallback   [ I ] - Callback function
 
 RETURN VALUE:
    eGobiError - Return code
 ===========================================================================*/
-eGobiError cGobiConnectionMgmt::SetUSSDOriginationCallback( 
+eGobiError cGobiConnectionMgmt::SetUSSDOriginationCallback(
    tFNUSSDOrigination         pCallback )
 {
    // We don't have to register for anything so a simple assignment works

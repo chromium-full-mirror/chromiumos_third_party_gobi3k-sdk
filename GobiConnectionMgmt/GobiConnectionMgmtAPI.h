@@ -132,12 +132,12 @@ typedef void (* tFNOMADMState)(
 typedef void (* tFNUSSDRelease)();
 
 // USSD notification callback function
-typedef void (* tFNUSSDNotification)( 
+typedef void (* tFNUSSDNotification)(
    ULONG                      type,
    BYTE *                     pNetworkInfo );
 
 // USSD origination callback function
-typedef void (* tFNUSSDOrigination)( 
+typedef void (* tFNUSSDOrigination)(
    ULONG                      errorCode,
    ULONG                      failureCause,
    BYTE *                     pNetworkInfo,
@@ -3294,7 +3294,7 @@ PARAMETERS:
 RETURN VALUE:
    ULONG - Return code
 ===========================================================================*/
-ULONG SetUSSDNotificationCallback( 
+ULONG SetUSSDNotificationCallback(
    tFNUSSDNotification        pCallback );
 
 /*===========================================================================
@@ -3303,14 +3303,14 @@ METHOD:
 
 DESCRIPTION:
    Enable/disable USSD origination callback function
-  
+
 PARAMETERS:
    pCallback   [ I ] - Callback function
 
 RETURN VALUE:
    ULONG - Return code
 ===========================================================================*/
-ULONG SetUSSDOriginationCallback( 
+ULONG SetUSSDOriginationCallback(
    tFNUSSDOrigination         pCallback );
 
 #ifdef __cplusplus
