@@ -57,6 +57,7 @@ POSSIBILITY OF SUCH DAMAGE.
 #include <sys/ioctl.h>
 #include <sys/stat.h>
 #include <fcntl.h>
+#include <syslog.h>
 
 //---------------------------------------------------------------------------
 // Macro defination
@@ -64,8 +65,8 @@ POSSIBILITY OF SUCH DAMAGE.
 
 #define ASSERT( x ) assert( x )
 
-#ifdef DEBUG
-   #define TRACE printf
+#ifndef NDEBUG
+#define TRACE(format, ...) syslog(LOG_DEBUG, format, ## __VA_ARGS__ )
 #else
    #define TRACE(...)
 #endif
