@@ -956,6 +956,14 @@ void cProtocolServer::RxComplete(
       TRACE( "cProtocolServer::RxComplete() = %lu\n", status );
    }
 
+   if (status == EBADF || status == ENXIO) {
+      // Either of these errors mean that we will *NEVER* succeed.
+      // Terminate the transmission and handle the error
+      mComm.CancelTx();
+      TxError();
+      return;
+   }
+
    // Error with the read
    if (status != NO_ERROR || bytesReceived == 0)
    {
