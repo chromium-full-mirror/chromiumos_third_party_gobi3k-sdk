@@ -1,0 +1,8 @@
+URL: https://www.codeaurora.org/patches/quic/gobi/Gobi3000/GobiAPI_2011-07-29-1026.tar.gz
+Version: Current as of 07-29-2911
+License: Copyright (c) 2011, Code Aurora Forum. All rights reserved.
+License File: LICENSE
+
+Description:
+  The source code for the open source gobi3k api (sdk).  Forked from
+https://www.codeaurora.org/patches/quic/gobi/Gobi3000/GobiAPI_2011-07-29-1026.tar.gz
