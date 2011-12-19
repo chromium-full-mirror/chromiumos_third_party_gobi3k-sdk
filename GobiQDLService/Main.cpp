@@ -61,11 +61,9 @@ DESCRIPTION:
 RETURN VALUE:
    bool
 ===========================================================================*/
-bool Run(const char *vid, const char *pid)
+bool Run(void)
 {
    cGobiQDLCore qdl;
-   qdl.set_vid(vid);
-   qdl.set_pid(pid);
    bool bRC = qdl.Initialize();
    if (bRC == false)
    {
@@ -194,18 +192,13 @@ DESCRIPTION:
 RETURN VALUE:
    int - Process exit code
 ===========================================================================*/
-int main(int argc, char *argv[])
+int main(void)
 {
-   if (argc < 3)
-   {
-      printf("Usage: %s <vid> <pid>\n", argv[0]);
-      return 1;
-   }
 
    // Add PID to log statements
    openlog( "GobiQDLService", LOG_PID, LOG_USER );
 
-   bool bSuccess = Run(argv[1], argv[2]);
+   bool bSuccess = Run();
 
    closelog();
 
