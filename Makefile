@@ -3,7 +3,7 @@
 # in the LICENSE file.
 
 ROOT := $(DESTDIR)/opt/Qualcomm
-LIBDIR := $(DESTDIR)/usr/lib
+PREFIX := $(DESTDIR)
 
 sdk :
 	$(MAKE) -C GobiConnectionMgmt
@@ -13,6 +13,7 @@ qdl :
 	$(MAKE) -C GobiQDLService
 
 install : sdk qdl
-	$(MAKE) -C GobiConnectionMgmt install LIBDIR=$(LIBDIR)
-	$(MAKE) -C GobiImageMgmt install LIBDIR=$(LIBDIR)
+	$(MAKE) -C Core install PREFIX=$(PREFIX)
+	$(MAKE) -C GobiConnectionMgmt install PREFIX=$(PREFIX)
+	$(MAKE) -C GobiImageMgmt install PREFIX=$(PREFIX)
 	$(MAKE) -C GobiQDLService install

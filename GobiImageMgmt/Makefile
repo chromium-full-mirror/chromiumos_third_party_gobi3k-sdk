@@ -19,7 +19,7 @@ $(OUTPUT): $(SOURCES) $(LIBCORE) QMIDB.o
 	@$(CXX) $(CXXFLAGS) $(QMICOREFLAGS) $(INCLUDES) -shared -o $@ $^
 
 # Must set ANDROID_PATH variable
-Android: 
+Android:
 	$(MAKE) $(MFLAGS) \
       PATH=$(PATH):$(ANDROID_PATH) \
       CXX=arm-linux-androideabi-g++ \
@@ -30,9 +30,11 @@ Android:
       INCLUDES="-I ../Core -I ../Shared -L. -lCore" \
       all
 
-install: $(OUTPUT)
-	mkdir -p $(LIBDIR)
-	cp -f $(OUTPUT) $(LIBDIR)
+install: $(OUTPUT) GobiImageMgmtAPI.h
+	install -d $(PREFIX)/usr/lib
+	install -t $(PREFIX)/usr/lib $(OUTPUT)
+	install -d $(PREFIX)/usr/include/gobi
+	install -t $(PREFIX)/usr/include/gobi $(filter %.h,$^)
 
 clean:
 	rm -f $(OUTPUT)
