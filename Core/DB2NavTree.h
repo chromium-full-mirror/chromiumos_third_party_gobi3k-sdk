@@ -132,5 +132,3 @@ class cDB2NavTree
       /* Map of all 'tracked' fields */
       std::map <ULONG, std::pair <bool, LONGLONG> > mTrackedFields;      
 };
-
-

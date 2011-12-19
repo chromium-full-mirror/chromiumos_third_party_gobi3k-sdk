@@ -165,4 +165,3 @@ class cGobiQDLCore
       /* Last error recorded */
       eGobiError mLastError;
 };
-

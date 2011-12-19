@@ -2879,4 +2879,3 @@ eGobiError cGobiConnectionMgmt::SetUSSDOriginationCallback(
    mpFNUSSDOrigination = pCallback;
    return eGOBI_ERR_NONE;
 }
-

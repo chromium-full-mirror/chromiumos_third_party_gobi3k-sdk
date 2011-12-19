@@ -654,4 +654,3 @@ std::set <T> SetUnion(
 
    return retSet;
 }
-

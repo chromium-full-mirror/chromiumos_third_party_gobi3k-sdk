@@ -1115,4 +1115,3 @@ void cDataParser::HandleSpecialCases(
       }
    }
 }
-

@@ -1,7 +1,4 @@
 INCLUDES=-I ../Core -I ../Shared -lrt -L. -lCore
-CXXFLAGS=-m32 -march=i386 -Wunused-variable
-LDFLAGS=-melf_i386
-DEBUGFLAGS=-g3 -D DEBUG
 QMICOREFLAGS=-D WDS_SUPPORT \
              -D DMS_SUPPORT \
              -D NAS_SUPPORT \
@@ -49,8 +46,8 @@ Android:
       all
 
 install: $(OUTPUT)
-	mkdir -p /opt/Qualcomm/Gobi/
-	cp -f $(OUTPUT) /opt/Qualcomm/Gobi/
+	mkdir -p $(ROOT)/Gobi
+	cp -f $(OUTPUT) $(ROOT)/Gobi
 
 clean:
 	rm -f $(OUTPUT) \
@@ -209,4 +206,3 @@ QMIProtocolServer.o: ../Core/QMIProtocolServer.cpp
 
 SharedBuffer.o: ../Core/SharedBuffer.cpp
 	$(CXX) $(CXXFLAGS) -c ../Core/SharedBuffer.cpp
-	

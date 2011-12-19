@@ -184,4 +184,3 @@ eGobiError cGobiQMICore::SetSMSWake(
    // Send the QMI request, check result, and return 
    return SendAndCheckReturn( eQMI_SVC_RMS, pRequest );
 }
-

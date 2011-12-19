@@ -1,6 +1,4 @@
 INCLUDES=-I ../Shared -I ../Core -lrt -L. -lCore
-CXXFLAGS=-m32 -march=i386 -Wunused-variable
-DEBUGFLAGS=-g3 -D DEBUG
 SOURCES=Main.cpp \
         ../Shared/GobiQDLCore.cpp \
         ../Shared/GobiMBNMgmt.cpp
@@ -25,12 +23,8 @@ debug:
 	$(MAKE) $(MFLAGS) CXXFLAGS="$(CXXFLAGS) $(DEBUGFLAGS)" all
 
 install: $(OUTPUT)
-	mkdir -p /opt/Qualcomm/Gobi/GobiQDLService/
-	cp -f $(OUTPUT) /opt/Qualcomm/Gobi/GobiQDLService/
-	cp -f 99-GobiQDLService.rules /etc/udev/rules.d/
-	udevadm control reload_rules 2>/dev/null \
-      || udevcontrol reload_rules 2>/dev/null \
-      || udevadm control --reload-rules 2>/dev/null
+	mkdir -p $(ROOT)/Gobi/GobiQDLService
+	cp -f $(OUTPUT) $(ROOT)/Gobi/GobiQDLService
 
 clean:
 	rm -f $(OUTPUT) \

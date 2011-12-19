@@ -1850,4 +1850,3 @@ void DepthSearch(
       free( ppDevFiles );
    }
 }
-

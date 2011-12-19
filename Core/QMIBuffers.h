@@ -376,4 +376,3 @@ struct sQMIServiceBuffer : public sProtocolBuffer
       sQMIServiceBuffer( const sProtocolBuffer & );
       sQMIServiceBuffer & operator = ( const sProtocolBuffer & );
 };
-

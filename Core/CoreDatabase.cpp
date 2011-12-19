@@ -3184,4 +3184,3 @@ bool cCoreDatabase::ValidateExpressionSpecifier(
 
    return bRC;
 }
-

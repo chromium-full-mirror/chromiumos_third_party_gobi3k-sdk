@@ -222,5 +222,3 @@ RETURN VALUE:
    std::string - Fully qualified path to matching image
 ===========================================================================*/
 std::string GetImageByUniqueID( BYTE * pImageID );
-
-

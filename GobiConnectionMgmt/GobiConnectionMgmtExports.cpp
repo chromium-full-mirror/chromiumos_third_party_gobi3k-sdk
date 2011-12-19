@@ -5018,4 +5018,3 @@ ULONG SetUSSDOriginationCallback(
    return (ULONG)pAPI->SetUSSDOriginationCallback( pCallback );
 }
 #endif
-

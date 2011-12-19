@@ -3326,4 +3326,3 @@ ULONG SetUSSDOriginationCallback(
 #ifdef __cplusplus
    };
 #endif
-
