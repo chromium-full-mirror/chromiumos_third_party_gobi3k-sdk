@@ -6,7 +6,7 @@ SOURCES := GobiImageMgmtExports.cpp \
         ../Shared/GobiQMICoreImg.o \
         ../Shared/GobiQDLCore.o \
         ../Shared/GobiMBNMgmt.o
-OUTPUT := GobiImageMgmt.so
+OUTPUT := libGobiImageMgmt.so
 
 all: $(OUTPUT)
 
@@ -31,8 +31,8 @@ Android:
       all
 
 install: $(OUTPUT)
-	mkdir -p $(ROOT)/Gobi
-	cp -f $(OUTPUT) $(ROOT)/Gobi
+	mkdir -p $(LIBDIR)
+	cp -f $(OUTPUT) $(LIBDIR)
 
 clean:
 	rm -f $(OUTPUT)

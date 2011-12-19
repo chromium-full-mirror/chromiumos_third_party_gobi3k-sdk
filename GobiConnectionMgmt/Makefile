@@ -27,8 +27,7 @@ SOURCES := GobiConnectionMgmtExports.cpp \
         ../Shared/GobiQMICoreUIM.o \
         ../Shared/GobiQMIVoice.o \
         ../Shared/GobiMBNMgmt.o
-
-OUTPUT := GobiConnectionMgmt.so
+OUTPUT := libGobiConnectionMgmt.so
 
 all: $(OUTPUT)
 
@@ -54,8 +53,8 @@ Android:
       all
 
 install: $(OUTPUT)
-	mkdir -p $(ROOT)/Gobi
-	cp -f $(OUTPUT) $(ROOT)/Gobi
+	mkdir -p $(LIBDIR)
+	cp -f $(OUTPUT) $(LIBDIR)
 
 clean:
 	rm -f $(OUTPUT)

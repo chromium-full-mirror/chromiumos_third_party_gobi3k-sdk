@@ -71,7 +71,8 @@ RETURN VALUE:
 cGobiQDLCore::cGobiQDLCore()
    :  mQDL( 512, 512 ),
       mQDLPortNode( "" ),
-      mQDLTimeout( DEFAULT_GOBI_QDL_TIMEOUT )
+      mQDLTimeout( DEFAULT_GOBI_QDL_TIMEOUT ),
+      mVid(NULL), mPid(NULL)
 {
    // Nothing to do
 }
@@ -209,7 +210,7 @@ std::vector <std::string> cGobiQDLCore::GetAvailableQDLPorts()
       ret = read( handle, buff, 4 );
       if (ret == 4)
       {
-         ret = strncmp( buff, "05c6", 4 );
+         ret = strncmp( buff, mVid, 4 );
          if (ret == 0)
          {
             bFound = true;
@@ -232,7 +233,7 @@ std::vector <std::string> cGobiQDLCore::GetAvailableQDLPorts()
       ret = read( handle, buff, 4 );
       if (ret == 4)
       {
-         ret = strncmp( buff, "920c", 4 );
+         ret = strncmp( buff, mPid, 4 );
          if (ret == 0)
          {
             bFound = true;
