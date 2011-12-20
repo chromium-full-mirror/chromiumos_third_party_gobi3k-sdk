@@ -4,6 +4,7 @@
 
 ROOT := $(DESTDIR)/opt/Qualcomm
 PREFIX := $(DESTDIR)
+CXXFLAGS += -fPIC
 
 sdk :
 	$(MAKE) -C GobiConnectionMgmt
