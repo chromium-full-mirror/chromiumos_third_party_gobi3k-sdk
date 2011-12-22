@@ -1843,6 +1843,7 @@ void DepthSearch(
                       name,
                       foundFiles );
       }
+      free( ppDevFiles[nFile] );
    }
 
    if (nNumDevFiles != -1)
