@@ -18,3 +18,4 @@ install : sdk qdl
 	$(MAKE) -C GobiConnectionMgmt install PREFIX=$(PREFIX)
 	$(MAKE) -C GobiImageMgmt install PREFIX=$(PREFIX)
 	$(MAKE) -C GobiQDLService install
+	$(MAKE) -C Tools install PREFIX=$(PREFIX)

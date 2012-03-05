@@ -1,0 +1,24 @@
+#!/bin/sh
+# This script, sadly, is distinct from gobi-modem-reset.c in gobi-cromo-plugin.
+# gobi-modem-reset is meant to be run setuid with a single USB ID as its target;
+# this script is run from an upstart job (i.e. already as root) before we know
+# the USB ID of the device. This script could be made to just determine the USB
+# device IDs and then invoke gobi-modem-reset, but it seems kind of dirty to
+# introduce a dependency between packages for such a trivial piece of
+# functionality.
+
+ps=''
+for x in /sys/bus/usb/drivers/qcserial/*; do
+	if [ -L "$x" -a -f "$x/../authorized" ] ; then
+		p=$(realpath "$x/../authorized")
+		if echo "$ps" | grep -vq "$p" ; then
+			ps="$ps $p"
+		fi
+	fi
+done
+
+for x in $ps; do
+	echo "reset $x"
+	echo 0 > "$x"
+	echo 1 > "$x"
+done
