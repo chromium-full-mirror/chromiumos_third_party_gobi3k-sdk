@@ -500,6 +500,7 @@ struct device_id {
 
 const struct device_id device_ids[] = {
 	GOBI3(05c6, 920d),		/* Novatel */
+	GOBI3(0af0, 8120),		/* Option */
 	GOBI3(12d1, 14f1),		/* Sony */
 	GOBI3(1410, a021),		/* Generic */
 	GOBI3(413c, 8194),		/* Dell */
