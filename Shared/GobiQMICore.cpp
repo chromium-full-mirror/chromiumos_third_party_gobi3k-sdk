@@ -39,6 +39,10 @@ POSSIBILITY OF SUCH DAMAGE.
 //---------------------------------------------------------------------------
 // Include Files
 //---------------------------------------------------------------------------
+#if defined(linux)
+#include <unistd.h>
+#endif
+
 #include "StdAfx.h"
 #include "GobiQMICore.h"
 
