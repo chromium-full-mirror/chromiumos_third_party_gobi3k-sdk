@@ -1827,6 +1827,7 @@ void DepthSearch(
    for (int nFile = 0; nFile < nNumDevFiles; nFile++)
    {
       std::string newFile = ppDevFiles[nFile]->d_name;
+      free( ppDevFiles[nFile] );
 
       // Recurse or not?
       if (depth == 0)
@@ -1843,7 +1844,6 @@ void DepthSearch(
                       name,
                       foundFiles );
       }
-      free( ppDevFiles[nFile] );
    }
 
    if (nNumDevFiles != -1)
