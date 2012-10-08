@@ -717,33 +717,36 @@ RETURN VALUE:
 ===========================================================================*/
 void cProtocolServer::RescheduleActiveRequest()
 {
-   // Are there more attempts to be made?
-   if (mpActiveRequest->mAttempts < mpActiveRequest->mRequest.GetRequests())
+   if (mpActiveRequest != 0)
    {
-      // Yes, first reset the request 
-      mpActiveRequest->Reset();
+      // Are there more attempts to be made?
+      if (mpActiveRequest->mAttempts < mpActiveRequest->mRequest.GetRequests())
+      {
+         // Yes, first reset the request
+         mpActiveRequest->Reset();
 
-      // Now add it back to the request map
-      mRequestMap[mpActiveRequest->mID] = mpActiveRequest;
+         // Now add it back to the request map
+         mRequestMap[mpActiveRequest->mID] = mpActiveRequest;
 
-      TRACE( "RescheduleActiveRequest(): req %lu rescheduled\n", mpActiveRequest->mID );                       
-      
-      // Lastly reschedule the request
-      ScheduleRequest( mpActiveRequest->mID, 
-                       mpActiveRequest->mRequest.GetFrequency() );
+         TRACE( "RescheduleActiveRequest(): req %lu rescheduled\n", mpActiveRequest->mID );
+ 
+         // Lastly reschedule the request
+         ScheduleRequest( mpActiveRequest->mID,
+                          mpActiveRequest->mRequest.GetFrequency() );
+
+      }
+      else
+      {
+         TRACE( "RescheduleActiveRequest(): req %lu removed\n", mpActiveRequest->mID );
+
+         // No, we are through with this request
+         delete mpActiveRequest;
+      }
+
+      // There is no longer an active request
+      mpActiveRequest = 0;
 
    }
-   else
-   {
-      TRACE( "RescheduleActiveRequest(): req %lu removed\n", mpActiveRequest->mID );
-
-      // No, we are through with this request
-      delete mpActiveRequest;
-   }
-
-   // There is no longer an active request
-   mpActiveRequest = 0;
-  
 }
 
 /*===========================================================================
