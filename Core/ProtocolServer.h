@@ -96,7 +96,7 @@ inline bool operator<= (const timespec & first, const timespec & second)
 /*=========================================================================*/
 // Class cProtocolServerRxCallback
 /*=========================================================================*/
-class cProtocolServerRxCallback
+class cProtocolServerRxCallback : public cIOCallback
 {
    public:
       // (Inline) Constructor
