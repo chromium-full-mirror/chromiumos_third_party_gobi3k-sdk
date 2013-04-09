@@ -1549,7 +1549,8 @@ bool ValidateDB2Categories(
 
                log.Log( tmp.str(), eDB2_STATUS_ERROR );
 
-               *pRefCats = -1;
+               cats.erase(pRefCats);
+               cats.insert(-1);
                bRC = false;
             }
          }
