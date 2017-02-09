@@ -4,7 +4,10 @@
 
 ROOT := $(DESTDIR)/opt/Qualcomm
 PREFIX := $(DESTDIR)
-CXXFLAGS += -fPIC
+CXXFLAGS += -fPIC -Werror
+# TODO(benchan): Gobi code has lots of other warnings, which should be cleaned
+# up eventually.
+CXXFLAGS += -Wno-switch
 
 sdk :
 	$(MAKE) -C GobiConnectionMgmt
