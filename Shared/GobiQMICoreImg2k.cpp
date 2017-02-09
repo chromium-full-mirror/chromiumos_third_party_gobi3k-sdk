@@ -438,7 +438,7 @@ eGobiError cGobiQMICore::GetImageInfo(
    }
 
    std::string imageStore = ::GetImageStore(mVid, mPid);
-   if (tmpPath.find( imageStore ) < 0)
+   if (tmpPath.find( imageStore ) == std::string::npos)
    {
       return eGOBI_ERR_INVALID_FILE;
    }
