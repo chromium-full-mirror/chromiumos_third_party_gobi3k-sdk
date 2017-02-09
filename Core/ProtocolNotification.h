@@ -194,6 +194,9 @@ struct sProtocolNotificationEvent
 class cProtocolNotification
 {
    public:
+      // Destructor
+      virtual ~cProtocolNotification() {}
+
       // Return an allocated copy of this object
       virtual cProtocolNotification * Clone() const = 0;
 
