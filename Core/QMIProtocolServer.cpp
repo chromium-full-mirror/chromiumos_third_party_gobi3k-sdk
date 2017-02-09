@@ -186,6 +186,8 @@ std::string cQMIProtocolServer::GetDeviceMEID( std::string deviceNode )
    retStr = &devMEID[0];
    
    close( devHandle );
+
+   return retStr;
 }
 
 /*===========================================================================
