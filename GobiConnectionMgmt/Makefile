@@ -52,8 +52,8 @@ Android:
       all
 
 install: $(OUTPUT) GobiConnectionMgmtAPI.h
-	install -d $(PREFIX)/usr/lib
-	install -t $(PREFIX)/usr/lib $(OUTPUT)
+	install -d $(PREFIX)/usr/$(LIBSUBDIR)
+	install -t $(PREFIX)/usr/$(LIBSUBDIR) $(OUTPUT)
 	install -d $(PREFIX)/usr/include/gobi
 	install -t $(PREFIX)/usr/include/gobi $(filter %.h,$^)
 

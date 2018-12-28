@@ -4,6 +4,7 @@
 
 ROOT := $(DESTDIR)/opt/Qualcomm
 PREFIX := $(DESTDIR)
+LIBSUBDIR ?= lib
 CXXFLAGS += -fPIC -Werror
 # TODO(benchan): Gobi code has lots of other warnings, which should be cleaned
 # up eventually.
